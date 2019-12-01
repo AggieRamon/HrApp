@@ -5,7 +5,7 @@ import locRoutes from "./location-routes/location-routes";
 import userRoutes from "./user-routes/user-routes";
 
 const app = express();
-const port = 3000;
+const port: any = process.env.PORT || 3000;
 const bodyParser = express.json();
 
 app.use(bodyParser);
