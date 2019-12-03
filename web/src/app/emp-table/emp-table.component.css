@@ -1,0 +1,70 @@
+div {
+    /* border: solid 2px black */
+    height: 75%;
+    display: flex;
+    width: 90%;
+    align-items: center;
+    margin-left: 50px;
+    overflow-y: auto;
+    margin-top: 5px;
+    position: relative;
+}
+
+table {
+    border: solid 2px black;
+    height: 75%;
+    padding: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    position: absolute;
+    top: 0;
+}
+
+tr:hover {
+    background: #707070
+}
+
+td, th {
+    border-bottom: solid 2px black;
+    text-align: center;
+    padding: 10px;
+}
+
+thead {
+    background-color: var(--secondary-clr);
+    color: var(--primary-clr);
+}
+
+.create {
+    background-color: var(--secondary-clr);
+    color: var(--primary-clr);
+    margin-top: 25px;
+    margin-left: 50px;
+    border: solid 2px var(--accent-clr);
+}
+
+.edit {
+    background-color: var(--secondary-clr);
+    color: var(--primary-clr)
+}
+
+.delete {
+    background-color: var(--danger-clr);
+    color: var(--primary-clr);
+}
+
+.create:hover {
+    background-color: var(--primary-clr);
+    color: var(--secondary-clr)
+}
+
+.edit:hover {
+    background-color: var(--primary-clr);
+    color: var(--secondary-clr)
+}
+
+.delete:hover {
+    background-color: var(--primary-clr);
+    color: var(--danger-clr)
+}
+

@@ -1,0 +1,54 @@
+h1 {
+    padding-left: 75px;
+}
+
+p {
+    margin: 5px 0 0 0;
+}
+
+.title-bar {
+    /* margin: 75px 0 0 75px; */
+    background-color: var(--secondary-clr);
+    color: var(--primary-clr);
+}
+
+.container {
+    width: 75%;
+    height: 500px;
+    margin-left: 75px;
+    border: solid 2px black;
+    border-radius: 20px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+}
+
+.employees,
+.jobs,
+.departments,
+.locations {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    border-bottom: solid black 2px;
+    border-right: solid black 2px;
+    cursor: pointer;
+}
+
+.removeBottomBorder {
+    border-bottom: none;
+}
+
+.removeBorder {
+    border: none;
+}
+
+.removeLeftBorder {
+    border-left: none;
+}
+
+.addLeftBorder {
+    border-left: solid 2px black;
+}

@@ -1,0 +1,24 @@
+<div class="title-bar">
+    <h1>Human Resource Central</h1>
+</div>
+
+<div class="container">
+    <div class="navigation">
+        <div #emp class="employees" [ngClass]="{'removeBorder': empBorder}" (click)="clicked(emp)">
+            <p>Employees</p>
+        </div>
+        <div #job class="jobs" [ngClass]="{'addLeftBorder': jobsLeftBorder, 'removeBottomBorder': jobsBottomBorder}" (click)="clicked(job)">
+            <p>Jobs</p>
+        </div>
+        <div #dept class="departments" [ngClass]="{'removeBottomBorder': deptBottomBorder}" (click)="clicked(dept)">
+            <p>Departments</p>
+        </div>
+        <div #loc class="locations" [ngClass]="{'removeBorder': locBorder}" (click)="clicked(loc)">
+            <p>Locations</p>
+        </div>
+    </div>
+
+    <emp-table [hidden]="hideEmp"></emp-table>
+
+
+</div>

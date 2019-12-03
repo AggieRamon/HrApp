@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-clr: #FFFFFF;
+    --secondary-clr: #000000;
+    --accent-clr: #707070;
+    --danger-clr: #FF0000;
+}
+
+body {
+    margin: 0;
+}
+
+button {
+    height: 30px;
+    width: 70px;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-style: none;
+}
