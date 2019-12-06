@@ -1,0 +1,8 @@
+h1 {
+    padding-left: 75px;
+}
+
+.title-bar {
+    background-color: var(--secondary-clr);
+    color: var(--primary-clr);
+}

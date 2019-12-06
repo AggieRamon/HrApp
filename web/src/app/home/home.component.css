@@ -1,15 +1,5 @@
-h1 {
-    padding-left: 75px;
-}
-
 p {
     margin: 5px 0 0 0;
-}
-
-.title-bar {
-    /* margin: 75px 0 0 75px; */
-    background-color: var(--secondary-clr);
-    color: var(--primary-clr);
 }
 
 .container {

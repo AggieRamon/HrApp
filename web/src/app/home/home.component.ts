@@ -12,6 +12,9 @@ export class HomeComponent implements OnInit {
   private deptBottomBorder: boolean;
   private locBorder: boolean;
   private hideEmp: boolean;
+  private hideJob: boolean;
+  private hideDept: boolean;
+  private hideLoc: boolean;
 
   constructor() { }
 
@@ -19,6 +22,9 @@ export class HomeComponent implements OnInit {
     this.empBorder = true;
     this.jobsLeftBorder = true;
     this.hideEmp = false;
+    this.hideJob = true;
+    this.hideDept = true;
+    this.hideLoc = true;
   }
 
   private clicked(el: HTMLElement) {
@@ -30,6 +36,9 @@ export class HomeComponent implements OnInit {
         this.deptBottomBorder = false;
         this.locBorder = false;
         this.hideEmp = false;
+        this.hideJob = true;
+        this.hideDept = true;
+        this.hideLoc = true;
         break;
       case "jobs":
         this.empBorder = false;
@@ -38,6 +47,9 @@ export class HomeComponent implements OnInit {
         this.deptBottomBorder = false;
         this.locBorder = false;
         this.hideEmp = true;
+        this.hideJob = false;
+        this.hideDept = true;
+        this.hideLoc = true;
         break;
       case "departments":
         this.empBorder = false;
@@ -45,6 +57,10 @@ export class HomeComponent implements OnInit {
         this.jobsBottomBorder = false;
         this.deptBottomBorder = true;
         this.locBorder = false;
+        this.hideEmp = true;
+        this.hideJob = true;
+        this.hideDept = false;
+        this.hideLoc = true;
         break;
       case "locations":
         this.empBorder = false;
@@ -52,6 +68,10 @@ export class HomeComponent implements OnInit {
         this.jobsBottomBorder = false;
         this.deptBottomBorder = false;
         this.locBorder = true;
+        this.hideEmp = true;
+        this.hideJob = true;
+        this.hideDept = true;
+        this.hideLoc = false;
         break;
     }
   }

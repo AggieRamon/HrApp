@@ -1,0 +1,74 @@
+<div class="main">
+    <div class="container">
+        <h1>New Employee</h1>
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+            <div class="r1">
+                <div class="inputGroup">
+                    <label for="firstName">First Name*</label>
+                    <input type="text" formControlName="firstName">
+                </div>
+                <div class="inputGroup">
+                    <label for="middleName">Middle Name</label>
+                    <input type="text" formControlName="middleName">
+                </div>
+                <div class="inputGroup">
+                    <label for="lastName">Last Name*</label>
+                    <input id="lastName" type="text" formControlName="lastName">
+                </div>
+            </div>
+            <div class="r2">
+                <div class="inputGroup">
+                    <label for="preferredFirstName">Preferred First Name</label>
+                    <input type="text" formControlName="preferredFirstName">
+                </div>
+                <div class="inputGroup">
+                    <label for="preferredLastName">Preferred Last Name</label>
+                    <input type="text" formControlName="preferredLastName">
+                </div>
+                <div class="inputGroup">
+                    <label for="email">Email Address*</label>
+                    <input type="text" formControlName="email">
+                </div>
+            </div>
+            <div class="r3">
+                <div class="inputGroup">
+                    <label for="jobTitle">Job Title*</label>
+                    <select formControlName="jobTitle">
+                        <option value="">Select One</option>
+                        <option value="x">x</option>
+                        <option value="y">y</option>
+                        <option value="z">z</option>
+                    </select>
+                </div>
+                <div class="inputGroup">
+                    <label for="departmentName">Department Name*</label>
+                    <select formControlName="departmentName">
+                        <option value="">Select One</option>
+                        <option value="x">x</option>
+                        <option value="y">y</option>
+                        <option value="z">z</option>
+                    </select>
+                </div>
+            </div>
+            <div class="r4">
+                <div class="inputGroup">
+                    <label for="locationName">Location Name*</label>
+                    <select formControlName="locationName">
+                        <option value="">Select One</option>
+                        <option value="x">x</option>
+                        <option value="y">y</option>
+                        <option value="z">z</option>
+                    </select>
+                </div>
+                <div class="inputGroup">
+                    <label for="manager">Manager*</label>
+                    <input type="text" formControlName="manager">
+                </div>
+            </div>
+            <div class="button">
+                <button [disabled]="createForm.invalid">Submit</button>
+                <button routerLink="/">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

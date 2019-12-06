@@ -1,7 +1,3 @@
-<div class="title-bar">
-    <h1>Human Resource Central</h1>
-</div>
-
 <div class="container">
     <div class="navigation">
         <div #emp class="employees" [ngClass]="{'removeBorder': empBorder}" (click)="clicked(emp)">
@@ -19,6 +15,9 @@
     </div>
 
     <emp-table [hidden]="hideEmp"></emp-table>
+    <job-table [hidden]="hideJob"></job-table>
+    <dept-table [hidden]=hideDept></dept-table>
+    <loc-table [hidden]="hideLoc"></loc-table>
 
 
 </div>
