@@ -15,9 +15,13 @@
     </div>
 
     <emp-table [hidden]="hideEmp"></emp-table>
-    <job-table [hidden]="hideJob"></job-table>
-    <dept-table [hidden]=hideDept></dept-table>
-    <loc-table [hidden]="hideLoc"></loc-table>
+    <job-table [hidden]="hideJob" (newJobForm)="toggleNewJobForm($event)"></job-table>
+    <dept-table [hidden]="hideDept" (newDeptForm)="toggleNewDeptForm($event)"></dept-table>
+    <loc-table [hidden]="hideLoc" (newLocForm)="toggleNewLocForm($event)"></loc-table>
 
 
 </div>
+
+<new-job [hidden]="hideNewJobForm" (newJobForm)="toggleNewJobForm($event)"></new-job>
+<new-dept [hidden]="hideNewDeptForm" (newDeptForm)="toggleNewDeptForm($event)"></new-dept>
+<new-loc [hidden]="hideNewLocForm" (newLocForm)="toggleNewLocForm($event)"></new-loc>

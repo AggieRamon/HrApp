@@ -1,0 +1,25 @@
+<div class="main">
+    <div class="container">
+        <h2>New Job Code</h2>
+        <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+            <div class="r1">
+                <div class="inputGroup">
+                    <label for="">Job Code*</label>
+                    <input type="number" formControlName="code">
+                </div>
+                <div class="inputGroup">
+                    <label for="">Job Title*</label>
+                    <input type="text" formControlName="title">
+                </div>
+            </div>
+            <div class="r2">
+                <div class="inputGroup">
+                    <label for="">Short Description</label>
+                    <textarea formControlName="shortdesc" cols="52" rows="8"></textarea>
+                </div>
+            </div>
+            <button type="button" (click)="toggleNewJobForm()">Cancel</button>
+            <button [disabled]="jobForm.invalid">Submit</button>
+        </form>
+    </div>
+</div>

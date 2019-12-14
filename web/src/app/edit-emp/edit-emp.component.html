@@ -1,28 +1,28 @@
 <div class="main">
     <div class="container">
-        <h1>New Employee</h1>
-        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+        <h1>Edit Employee</h1>
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
             <div class="r1">
                 <div class="inputGroup">
-                    <label for="firstName">First Name*</label>
+                    <label for="firstname">First Name*</label>
                     <input type="text" formControlName="firstname">
                 </div>
                 <div class="inputGroup">
-                    <label for="middleName">Middle Name</label>
+                    <label for="middlename">Middle Name</label>
                     <input type="text" formControlName="middlename">
                 </div>
                 <div class="inputGroup">
-                    <label for="lastName">Last Name*</label>
+                    <label for="lastname">Last Name*</label>
                     <input id="lastName" type="text" formControlName="lastname">
                 </div>
             </div>
             <div class="r2">
                 <div class="inputGroup">
-                    <label for="preferredFirstName">Preferred First Name</label>
+                    <label for="preferredfirstname">Preferred First Name</label>
                     <input type="text" formControlName="preferredfirstname">
                 </div>
                 <div class="inputGroup">
-                    <label for="preferredLastName">Preferred Last Name</label>
+                    <label for="preferredlastname">Preferred Last Name</label>
                     <input type="text" formControlName="preferredlastname">
                 </div>
                 <div class="inputGroup">
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="button">
-                <button [disabled]="createForm.invalid">Submit</button>
+                <button [disabled]="editForm.invalid">Submit</button>
                 <button routerLink="/">Cancel</button>
             </div>
         </form>

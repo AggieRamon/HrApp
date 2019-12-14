@@ -1,0 +1,25 @@
+<div class="main">
+    <div class="container">
+        <h2>New Dept Code</h2>
+        <form [formGroup]="deptForm" (ngSubmit)="onSubmit()">
+            <div class="r1">
+                <div class="inputGroup">
+                    <label for="">Department Code*</label>
+                    <input type="number" formControlName="code">
+                </div>
+                <div class="inputGroup">
+                    <label for="">Department Name*</label>
+                    <input type="text" formControlName="name">
+                </div>
+            </div>
+            <div class="r2">
+                <div class="inputGroup">
+                    <label for="">Short Description</label>
+                    <textarea formControlName="shortdesc" cols="52" rows="8"></textarea>
+                </div>
+            </div>
+            <button type="button" (click)="toggleNewDeptForm()">Cancel</button>
+            <button [disabled]="deptForm.invalid">Submit</button>
+        </form>
+    </div>
+</div>

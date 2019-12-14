@@ -15,6 +15,9 @@ export class HomeComponent implements OnInit {
   private hideJob: boolean;
   private hideDept: boolean;
   private hideLoc: boolean;
+  private hideNewJobForm: boolean;
+  private hideNewDeptForm: boolean;
+  private hideNewLocForm: boolean;
 
   constructor() { }
 
@@ -25,6 +28,21 @@ export class HomeComponent implements OnInit {
     this.hideJob = true;
     this.hideDept = true;
     this.hideLoc = true;
+    this.hideNewJobForm = true;
+    this.hideNewDeptForm = true;
+    this.hideNewLocForm = true;
+  }
+
+  toggleNewJobForm(hide: boolean) {
+    this.hideNewJobForm = hide;
+  }
+
+  toggleNewDeptForm(hide: boolean) {
+    this.hideNewDeptForm = hide;
+  }
+
+  toggleNewLocForm(hide: boolean) {
+    this.hideNewLocForm = hide;
   }
 
   private clicked(el: HTMLElement) {

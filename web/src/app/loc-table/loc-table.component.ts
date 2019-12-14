@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { LocService } from "../loc.service";
 
 @Component({
   selector: "loc-table",
@@ -6,10 +7,16 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./loc-table.component.css"]
 })
 export class LocTableComponent implements OnInit {
+  @Output() newLocForm = new EventEmitter<boolean>();
+  private locs: object;
 
-  constructor() { }
+  constructor(private locService: LocService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.locs = await this.locService.getLoc();
   }
 
+  private toggleNewLocForm() {
+    this.newLocForm.emit(false);
+  }
 }

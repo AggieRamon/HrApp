@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { JobService } from "../job.service";
 
 @Component({
   selector: "job-table",
@@ -6,10 +7,17 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./job-table.component.css"]
 })
 export class JobTableComponent implements OnInit {
+  @Output() newJobForm = new EventEmitter<boolean>();
+  private jobs: object;
 
-  constructor() { }
+  constructor(private jobService: JobService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.jobs = await this.jobService.getJob();
+  }
+
+  private toggleNewJobForm() {
+    this.newJobForm.emit(false);
   }
 
 }

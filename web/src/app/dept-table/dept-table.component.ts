@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { DeptService } from "../dept.service";
 
 @Component({
   selector: "dept-table",
@@ -6,10 +7,16 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./dept-table.component.css"]
 })
 export class DeptTableComponent implements OnInit {
+  @Output() newDeptForm = new EventEmitter<boolean>();
+  private depts: object;
 
-  constructor() { }
+  constructor(private deptService: DeptService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.depts = await this.deptService.getDept();
   }
 
+  private toggleNewDeptForm() {
+    this.newDeptForm.emit(false);
+  }
 }

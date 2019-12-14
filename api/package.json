@@ -4,7 +4,7 @@
   "description": "Backend for HR Application",
   "main": "dist/app.js",
   "scripts": {
-    "app-serve": "rm -rf dist/ && tsc && node dist/app.js",
+    "start": "rm -rf dist/ && tsc && node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ramon Ramon",

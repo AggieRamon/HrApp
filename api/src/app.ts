@@ -2,12 +2,16 @@ import express from "express";
 import deptRoutes from "./dept-routes/dept-routes";
 import jobRoutes from "./job-routes/job-routes";
 import locRoutes from "./location-routes/location-routes";
+import { Middleware } from "./services/middleware";
 import userRoutes from "./user-routes/user-routes";
 
 const app = express();
 const port: any = process.env.PORT || 3000;
 const bodyParser = express.json();
 
+app.use((req, res, next) => {
+    Middleware.corsHeaders(req, res, next);
+});
 app.use(bodyParser);
 app.use("/user", userRoutes);
 app.use("/dept", deptRoutes);

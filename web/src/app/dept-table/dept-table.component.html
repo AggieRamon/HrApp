@@ -1,4 +1,4 @@
-<button class="create">CREATE</button>
+<button class="create" (click)="toggleNewDeptForm()">CREATE</button>
 <div>
     <table>
         <thead>
@@ -6,16 +6,12 @@
             <th>Name</th>
             <th>Short Description</th>
             <th></th>
-            <th></th>
         </thead>
         <tbody>
-            <tr>
-                <td>123</td>
-                <td>Solutions Architect</td>
-                <td>Design implement, and test solutions</td>
-                <td>
-                    <button class="edit">EDIT</button>
-                </td>
+            <tr *ngFor="let dept of depts">
+                <td>{{ dept.code }}</td>
+                <td>{{ dept.name }}</td>
+                <td>{{ dept.shortdesc }}</td>
                 <td>
                     <button class="delete">DELETE</button>
                 </td>
