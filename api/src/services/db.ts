@@ -4,8 +4,8 @@ const POOL = pg.Pool;
 
 export const HRAPP = new POOL({
     host: "localhost",
-    user: "hrappadmin",
-    password: "hrappadmin",
+    user: process.env.HRAPPUSER,
+    password: process.env.HRAPPPWD,
     database: "hrapp",
     port: 5432,
 });
