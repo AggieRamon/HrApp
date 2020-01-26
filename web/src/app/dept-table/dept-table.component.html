@@ -8,7 +8,7 @@
             <th></th>
         </thead>
         <tbody>
-            <tr *ngFor="let dept of depts">
+            <tr *ngFor="let dept of getDepts()">
                 <td>{{ dept.code }}</td>
                 <td>{{ dept.name }}</td>
                 <td>{{ dept.shortdesc }}</td>

@@ -7,7 +7,7 @@ import { LocService } from "../loc.service";
   templateUrl: "./new-loc.component.html",
   styleUrls: ["./new-loc.component.css"]
 })
-export class NewLocComponent implements OnInit {
+export class NewLocComponent {
   private locForm: FormGroup;
   @Output() newLocForm = new EventEmitter<boolean>();
 
@@ -19,10 +19,11 @@ export class NewLocComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  public getLocForm() {
+    return this.locForm;
   }
 
-  onSubmit() {
+  public onSubmit() {
     console.log(this.locForm.value);
     this.locService.createLoc(this.locForm.value).subscribe(res => {
       console.log(res);
@@ -33,7 +34,7 @@ export class NewLocComponent implements OnInit {
 
   }
 
-  private toggleNewLocForm() {
+  public toggleNewLocForm() {
     this.newLocForm.emit(true);
   }
 

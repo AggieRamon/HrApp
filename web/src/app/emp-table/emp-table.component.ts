@@ -16,4 +16,8 @@ export class EmpTableComponent implements OnInit {
   async ngOnInit() {
     this.users = await this.userService.getUser();
   }
+
+  public getUsers() {
+    return this.users;
+  }
 }

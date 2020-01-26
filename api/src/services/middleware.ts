@@ -8,6 +8,6 @@ export abstract class Middleware {
             "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization",
             "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, OPTIONS"
         });
-        next();
+        return next();
     }
 }

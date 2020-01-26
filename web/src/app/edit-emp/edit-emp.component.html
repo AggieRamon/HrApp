@@ -1,7 +1,7 @@
 <div class="main">
     <div class="container">
         <h1>Edit Employee</h1>
-        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="getEditForm()" (ngSubmit)="onSubmit()">
             <div class="r1">
                 <div class="inputGroup">
                     <label for="firstname">First Name*</label>
@@ -35,14 +35,14 @@
                     <label for="jobTitle">Job Title*</label>
                     <select formControlName="jobcode">
                         <option value="">Select One</option>
-                        <option *ngFor="let job of jobs" value="{{ job.code }}|{{ job.title }}">{{ job.title }}</option>
+                        <option *ngFor="let job of getJobs()" value="{{ job.code }}|{{ job.title }}">{{ job.title }}</option>
                     </select>
                 </div>
                 <div class="inputGroup">
                     <label for="departmentName">Department Name*</label>
                     <select formControlName="departmentcode">
                         <option value="">Select One</option>
-                        <option *ngFor="let dept of depts" value="{{ dept.code }}|{{ dept.name }}">{{ dept.name }}</option>
+                        <option *ngFor="let dept of getDepts()" value="{{ dept.code }}|{{ dept.name }}">{{ dept.name }}</option>
                     </select>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                     <label for="locationName">Location Name*</label>
                     <select formControlName="locationcode">
                         <option value="">Select One</option>
-                        <option *ngFor="let loc of locs" value="{{ loc.code }}|{{ loc.name }}">{{ loc.name }}</option>
+                        <option *ngFor="let loc of getLocs()" value="{{ loc.code }}|{{ loc.name }}">{{ loc.name }}</option>
                     </select>
                 </div>
                 <div class="inputGroup">
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="button">
-                <button [disabled]="editForm.invalid">Submit</button>
+                <button [disabled]="getEditForm().invalid">Submit</button>
                 <button routerLink="/">Cancel</button>
             </div>
         </form>

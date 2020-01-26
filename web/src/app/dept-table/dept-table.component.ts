@@ -16,7 +16,11 @@ export class DeptTableComponent implements OnInit {
     this.depts = await this.deptService.getDept();
   }
 
-  private toggleNewDeptForm() {
+  public toggleNewDeptForm() {
     this.newDeptForm.emit(false);
+  }
+
+  public getDepts() {
+    return this.depts;
   }
 }

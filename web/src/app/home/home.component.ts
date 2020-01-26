@@ -6,18 +6,18 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  private empBorder: boolean;
-  private jobsLeftBorder: boolean;
-  private jobsBottomBorder: boolean;
-  private deptBottomBorder: boolean;
-  private locBorder: boolean;
-  private hideEmp: boolean;
-  private hideJob: boolean;
-  private hideDept: boolean;
-  private hideLoc: boolean;
-  private hideNewJobForm: boolean;
-  private hideNewDeptForm: boolean;
-  private hideNewLocForm: boolean;
+  public empBorder: boolean;
+  public jobsLeftBorder: boolean;
+  public jobsBottomBorder: boolean;
+  public deptBottomBorder: boolean;
+  public locBorder: boolean;
+  public hideEmp: boolean;
+  public hideJob: boolean;
+  public hideDept: boolean;
+  public hideLoc: boolean;
+  public hideNewJobForm: boolean;
+  public hideNewDeptForm: boolean;
+  public hideNewLocForm: boolean;
 
   constructor() { }
 
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     this.hideNewLocForm = hide;
   }
 
-  private clicked(el: HTMLElement) {
+  public clicked(el: HTMLElement) {
     switch (el.textContent.toLowerCase()) {
       case "employees":
         this.empBorder = true;

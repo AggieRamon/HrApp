@@ -44,7 +44,22 @@ export class NewEmpComponent implements OnInit {
     this.locs = await this.locService.getLoc();
   }
 
-  private onSubmit() {
+  public getCreateForm() {
+    return this.createForm;
+  }
+
+  public getJobs() {
+    return this.jobs;
+  }
+
+  public getDepts() {
+    return this.depts;
+  }
+
+  public getLocs() {
+    return this.locs;
+  }
+  public onSubmit() {
     let val: string;
     let splitVal: string[];
 

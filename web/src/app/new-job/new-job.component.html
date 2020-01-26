@@ -1,7 +1,7 @@
 <div class="main">
     <div class="container">
         <h2>New Job Code</h2>
-        <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="getJobForm()" (ngSubmit)="onSubmit()">
             <div class="r1">
                 <div class="inputGroup">
                     <label for="">Job Code*</label>
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <button type="button" (click)="toggleNewJobForm()">Cancel</button>
-            <button [disabled]="jobForm.invalid">Submit</button>
+            <button [disabled]="getJobForm().invalid">Submit</button>
         </form>
     </div>
 </div>

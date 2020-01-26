@@ -16,7 +16,11 @@ export class LocTableComponent implements OnInit {
     this.locs = await this.locService.getLoc();
   }
 
-  private toggleNewLocForm() {
+  public toggleNewLocForm() {
     this.newLocForm.emit(false);
+  }
+
+  public getLocs() {
+    return this.locs;
   }
 }

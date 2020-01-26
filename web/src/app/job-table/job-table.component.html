@@ -8,7 +8,7 @@
             <th></th>
         </thead>
         <tbody>
-            <tr *ngFor="let job of jobs">
+            <tr *ngFor="let job of getJobs()">
                 <td>{{ job.code }}</td>
                 <td>{{ job.title }}</td>
                 <td>{{ job.shortdesc }}</td>

@@ -10,7 +10,7 @@
             <th></th>
         </thead>
         <tbody>
-            <ng-container *ngFor="let user of users">
+            <ng-container *ngFor="let user of getUsers()">
                 <tr routerLink="/edit/{{ user.id }}">
                     <td>{{ user.id }}</td>
                     <td>{{ user.firstname }}</td>

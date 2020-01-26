@@ -1,7 +1,7 @@
 <div class="main">
     <div class="container">
         <h2>New Dept Code</h2>
-        <form [formGroup]="deptForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="getDeptForm()" (ngSubmit)="onSubmit()">
             <div class="r1">
                 <div class="inputGroup">
                     <label for="">Department Code*</label>
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <button type="button" (click)="toggleNewDeptForm()">Cancel</button>
-            <button [disabled]="deptForm.invalid">Submit</button>
+            <button [disabled]="getDeptForm().invalid">Submit</button>
         </form>
     </div>
 </div>

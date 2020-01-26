@@ -71,7 +71,23 @@ export class EditEmpComponent implements OnInit {
     this.editForm.setValue(valuesObject);
   }
 
-  private onSubmit() {
+  public getEditForm() {
+    return this.editForm;
+  }
+
+  public getDepts() {
+    return this.depts;
+  }
+
+  public getJobs() {
+    return this.jobs;
+  }
+
+  public getLocs() {
+    return this.locs;
+  }
+
+  public onSubmit() {
     let val: string;
     let splitVal: string[];
 

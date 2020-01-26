@@ -7,7 +7,7 @@ import { DeptService } from "../dept.service";
   templateUrl: "./new-dept.component.html",
   styleUrls: ["./new-dept.component.css"]
 })
-export class NewDeptComponent implements OnInit {
+export class NewDeptComponent {
   private deptForm: FormGroup;
   @Output() newDeptForm = new EventEmitter<boolean>();
 
@@ -19,10 +19,11 @@ export class NewDeptComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  public getDeptForm() {
+    return this.deptForm;
   }
 
-  onSubmit() {
+  public onSubmit() {
     console.log(this.deptForm.value);
     this.deptService.createDept(this.deptForm.value).subscribe(res => {
       if (res.status === 201) {
@@ -32,7 +33,7 @@ export class NewDeptComponent implements OnInit {
 
   }
 
-  private toggleNewDeptForm() {
+  public toggleNewDeptForm() {
     this.newDeptForm.emit(true);
   }
 

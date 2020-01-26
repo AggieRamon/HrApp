@@ -7,7 +7,7 @@ import { JobService } from "../job.service";
   templateUrl: "./new-job.component.html",
   styleUrls: ["./new-job.component.css"]
 })
-export class NewJobComponent implements OnInit {
+export class NewJobComponent {
   private jobForm: FormGroup;
   @Output() newJobForm = new EventEmitter<boolean>();
 
@@ -19,10 +19,11 @@ export class NewJobComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  public getJobForm() {
+    return this.jobForm;
   }
 
-  onSubmit() {
+  public onSubmit() {
     console.log(this.jobForm.value);
     this.jobService.createJob(this.jobForm.value).subscribe(res => {
       console.log(res);
@@ -33,7 +34,7 @@ export class NewJobComponent implements OnInit {
 
   }
 
-  private toggleNewJobForm() {
+  public toggleNewJobForm() {
     this.newJobForm.emit(true);
   }
 

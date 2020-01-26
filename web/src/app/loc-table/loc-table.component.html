@@ -8,7 +8,7 @@
             <th></th>
         </thead>
         <tbody>
-            <tr *ngFor="let loc of locs">
+            <tr *ngFor="let loc of getLocs()">
                 <td>{{ loc.code }}</td>
                 <td>{{ loc.name }}</td>
                 <td>{{ loc.shortdesc }}</td>

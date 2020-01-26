@@ -16,8 +16,12 @@ export class JobTableComponent implements OnInit {
     this.jobs = await this.jobService.getJob();
   }
 
-  private toggleNewJobForm() {
+  public toggleNewJobForm() {
     this.newJobForm.emit(false);
+  }
+
+  public getJobs() {
+    return this.jobs;
   }
 
 }

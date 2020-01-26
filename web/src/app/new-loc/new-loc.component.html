@@ -1,7 +1,7 @@
 <div class="main">
     <div class="container">
         <h2>New Loc Code</h2>
-        <form [formGroup]="locForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="getLocForm()" (ngSubmit)="onSubmit()">
             <div class="r1">
                 <div class="inputGroup">
                     <label for="">Location Code*</label>
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <button type="button" (click)="toggleNewLocForm()">Cancel</button>
-            <button [disabled]="locForm.invalid">Submit</button>
+            <button [disabled]="getLocForm().invalid">Submit</button>
         </form>
     </div>
 </div>
