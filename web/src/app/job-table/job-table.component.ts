@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { JobService } from "../job.service";
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: "job-table",
@@ -7,21 +8,37 @@ import { JobService } from "../job.service";
   styleUrls: ["./job-table.component.css"]
 })
 export class JobTableComponent implements OnInit {
-  @Output() newJobForm = new EventEmitter<boolean>();
+  // Event emitter to alert home component to show new job component
+  @Output() showJobForm = new EventEmitter<boolean>();
+  // Subscribe to refresh input to refresh job table on creation of new job
+  @Input('refresh') refresh: Subject<boolean>;
+  // Variable to hold queried jobs
   private jobs: object;
 
-  constructor(private jobService: JobService) { }
+  constructor(private jobService: JobService) {}
 
-  async ngOnInit() {
-    this.jobs = await this.jobService.getJob();
+  ngOnInit() {
+    this.queryJobs()
+    // Subscribe to refresh subject in order to determine when to update jobs
+    this.refresh.subscribe(refresh => {
+      if (refresh) {
+        this.queryJobs()
+      }
+    })
   }
 
   public toggleNewJobForm() {
-    this.newJobForm.emit(false);
+    // When create button is clicked emit event to show new job component
+    this.showJobForm.emit(false);
   }
 
   public getJobs() {
     return this.jobs;
+  }
+
+  private async queryJobs() {
+    // Call job service to query jobs
+    this.jobs = await this.jobService.getJob() 
   }
 
 }

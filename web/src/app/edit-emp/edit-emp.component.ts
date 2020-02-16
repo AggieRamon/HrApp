@@ -12,6 +12,7 @@ import { LocService } from "../loc.service";
   styleUrls: ["./edit-emp.component.css"]
 })
 export class EditEmpComponent implements OnInit {
+  // Create variables to be used for edit employee form
   private editForm: FormGroup;
   private user;
   private jobs;
@@ -22,7 +23,9 @@ export class EditEmpComponent implements OnInit {
   constructor(private fb: FormBuilder, private userService: UserService,
               private router: Router, private jobService: JobService,
               private deptService: DeptService, private locService: LocService) {
+    // Get user id from url to be used to query current values
     this.userId = this.router.url.replace("/edit/", "");
+    // Build edit form and all validators
     this.editForm = fb.group({
       firstname: fb.control("", Validators.required),
       middlename: fb.control(""),
@@ -39,18 +42,24 @@ export class EditEmpComponent implements OnInit {
       status: fb.control("", Validators.required),
       managerid: fb.control("", Validators.required)
     });
-    this.userId = this.router.url.replace("/edit/", "");
   }
 
   async ngOnInit() {
+    // Query jobs, locs, and depts to be used for dropdown menu
     this.jobs = await this.jobService.getJob();
     this.depts = await this.deptService.getDept();
     this.locs = await this.locService.getLoc();
 
+    // Query user by id to obtain current values
     const res = await this.userService.getUserById(this.userId);
+    // Get first item in array
     this.user = res[0];
+    // Initialize object to be save to form
     const valuesObject = {};
+    // Iterate through the fields in the edit form
     Object.keys(this.editForm.controls).forEach(key => {
+      /* Since I do not have code fields I made the value of the options a concatenated string of title and code
+        If it is not an option field then set the control value to the user value*/
       switch (key) {
         case "jobcode":
           // tslint:disable-next-line: no-string-literal
@@ -68,6 +77,7 @@ export class EditEmpComponent implements OnInit {
           valuesObject[key] = this.user[key];
       }
     });
+    // Update the current values to the edit form
     this.editForm.setValue(valuesObject);
   }
 
@@ -91,6 +101,8 @@ export class EditEmpComponent implements OnInit {
     let val: string;
     let splitVal: string[];
 
+    // Before update, split code value into title and code, and update the form
+
     val = this.editForm.get("jobcode").value;
     splitVal = val.split("|");
     this.editForm.get("jobcode").setValue(splitVal[0]);
@@ -107,6 +119,7 @@ export class EditEmpComponent implements OnInit {
     this.editForm.get("location").setValue(splitVal[1]);
     this.userService.updateUser(this.editForm.value, this.userId).subscribe(res => {
       if (res.status === 200) {
+        // If successful update navigate back to home page
         this.router.navigateByUrl("/");
       }
     });

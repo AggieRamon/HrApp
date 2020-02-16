@@ -15,13 +15,13 @@
     </div>
 
     <emp-table [hidden]="hideEmp"></emp-table>
-    <job-table [hidden]="hideJob" (newJobForm)="toggleNewJobForm($event)"></job-table>
-    <dept-table [hidden]="hideDept" (newDeptForm)="toggleNewDeptForm($event)"></dept-table>
-    <loc-table [hidden]="hideLoc" (newLocForm)="toggleNewLocForm($event)"></loc-table>
+    <job-table [hidden]="hideJob" (showJobForm)="toggleNewJobForm($event)" [refresh]="jobRefresh"></job-table>
+    <dept-table [hidden]="hideDept" (newDeptForm)="toggleNewDeptForm($event)" [refresh]="deptRefresh"></dept-table>
+    <loc-table [hidden]="hideLoc" (newLocForm)="toggleNewLocForm($event)" [refresh]="locRefresh"></loc-table>
 
 
 </div>
 
-<new-job [hidden]="hideNewJobForm" (newJobForm)="toggleNewJobForm($event)"></new-job>
-<new-dept [hidden]="hideNewDeptForm" (newDeptForm)="toggleNewDeptForm($event)"></new-dept>
-<new-loc [hidden]="hideNewLocForm" (newLocForm)="toggleNewLocForm($event)"></new-loc>
+<new-job [hidden]="hideNewJobForm" (showJobForm)="toggleNewJobForm($event)" [refresh]="jobRefresh"></new-job>
+<new-dept [hidden]="hideNewDeptForm" (newDeptForm)="toggleNewDeptForm($event)" [refresh]="deptRefresh"></new-dept>
+<new-loc [hidden]="hideNewLocForm" (newLocForm)="toggleNewLocForm($event)" [refresh]="locRefresh"></new-loc>

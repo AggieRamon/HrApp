@@ -11,7 +11,6 @@ export class UserService {
 
   public getUser() {
     return this.http.get("http://" + environment.host + ":" + environment.port + "/user").toPromise().then(res => {
-      console.log("http://" + environment.host + ":" + environment.port + "/user");
       return res;
     });
   }

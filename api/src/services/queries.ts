@@ -1,7 +1,11 @@
 export abstract class Queries {
 
     public static selectAll(table: string): string {
-        return "SELECT * FROM " + table;
+        if (table === "users") {
+            return "SELECT * FROM " + table + " ORDER BY id ASC";
+        } else {
+            return "SELECT * FROM " + table + " ORDER BY code ASC";
+        }
     }
 
     public static selectById(table: string, uid: string, val: string): string {

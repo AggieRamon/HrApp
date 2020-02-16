@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Subject } from 'rxjs';
 
 @Component({
   selector: "home",
@@ -6,6 +7,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
+  // Variables to hide and show html elements and borders
   public empBorder: boolean;
   public jobsLeftBorder: boolean;
   public jobsBottomBorder: boolean;
@@ -18,10 +20,19 @@ export class HomeComponent implements OnInit {
   public hideNewJobForm: boolean;
   public hideNewDeptForm: boolean;
   public hideNewLocForm: boolean;
+  // Create subject to determine when to refresh tables after changes
+  public jobRefresh: Subject<boolean>;
+  public deptRefresh: Subject<boolean>;
+  public locRefresh: Subject<boolean>;
 
-  constructor() { }
+  constructor() {
+    this.jobRefresh = new Subject();
+    this.deptRefresh = new Subject();
+    this.locRefresh = new Subject();
+  }
 
   ngOnInit() {
+    // Initialize variables
     this.empBorder = true;
     this.jobsLeftBorder = true;
     this.hideEmp = false;
@@ -34,18 +45,22 @@ export class HomeComponent implements OnInit {
   }
 
   toggleNewJobForm(hide: boolean) {
+    // Get showJobFrom event emitter value
     this.hideNewJobForm = hide;
   }
 
   toggleNewDeptForm(hide: boolean) {
+    // Get showDeptFrom event emitter value
     this.hideNewDeptForm = hide;
   }
 
   toggleNewLocForm(hide: boolean) {
+    // Get showLocFrom event emitter value
     this.hideNewLocForm = hide;
   }
 
   public clicked(el: HTMLElement) {
+    // Switch statement to control borders when tab is clicked (Users, Jobs, etc...)
     switch (el.textContent.toLowerCase()) {
       case "employees":
         this.empBorder = true;
