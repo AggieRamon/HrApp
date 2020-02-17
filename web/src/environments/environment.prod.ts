@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   host: "192.168.0.25",
-  port: "3000"
+  port: "80"
 };
