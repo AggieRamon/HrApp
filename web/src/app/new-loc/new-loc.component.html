@@ -1,6 +1,6 @@
 <div class="main">
     <div class="container">
-        <h2>New Loc Code</h2>
+        <h2>{{ header }}</h2>
         <form [formGroup]="getLocForm()" (ngSubmit)="onSubmit()">
             <div class="r1">
                 <div class="inputGroup">
@@ -18,7 +18,7 @@
                     <textarea formControlName="shortdesc" cols="52" rows="8"></textarea>
                 </div>
             </div>
-            <button type="button" (click)="toggleNewLocForm()">Cancel</button>
+            <button type="button" (click)="toggleLocForm()">Cancel</button>
             <button [disabled]="getLocForm().invalid">Submit</button>
         </form>
     </div>

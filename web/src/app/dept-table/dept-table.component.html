@@ -1,4 +1,4 @@
-<button class="create" (click)="toggleNewDeptForm()">CREATE</button>
+<button #create class="create" (click)="toggleDeptForm(create)">CREATE</button>
 <div>
     <table>
         <thead>
@@ -8,8 +8,8 @@
             <th></th>
         </thead>
         <tbody>
-            <tr *ngFor="let dept of getDepts()">
-                <td>{{ dept.code }}</td>
+            <tr *ngFor="let dept of getDepts()" (click)="toggleDeptForm(code)">
+                <td #code>{{ dept.code }}</td>
                 <td>{{ dept.name }}</td>
                 <td>{{ dept.shortdesc }}</td>
                 <td>

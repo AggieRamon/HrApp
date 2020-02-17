@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 })
 export class DeptTableComponent implements OnInit {
   // Event emitter to alert home component to show new dept component
-  @Output() newDeptForm = new EventEmitter<boolean>();
+  @Output() showDeptForm = new EventEmitter<{code: number, show: boolean}>();
   // Subscribe to refresh input to refresh dept table on creation of new department
   @Input('refresh') refresh: Subject<boolean>;
   // Variable to hold queried jobs
@@ -27,9 +27,16 @@ export class DeptTableComponent implements OnInit {
     })
   }
 
-  public toggleNewDeptForm() {
-    // When create button is clicked emit event to show new dept component
-    this.newDeptForm.emit(false);
+  public toggleDeptForm(el: HTMLElement) {
+    let deptCode = null;
+    if (el.innerText !== "CREATE") {
+      deptCode = Number(el.innerText)
+    }
+    // When toggled emit event to show dept component
+    this.showDeptForm.emit({
+      code: deptCode,
+      show: true
+    });
   }
 
   public getDepts() {

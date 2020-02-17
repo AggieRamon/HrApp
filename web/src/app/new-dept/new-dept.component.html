@@ -1,6 +1,6 @@
 <div class="main">
     <div class="container">
-        <h2>New Dept Code</h2>
+        <h2>{{ header }}</h2>
         <form [formGroup]="getDeptForm()" (ngSubmit)="onSubmit()">
             <div class="r1">
                 <div class="inputGroup">
@@ -18,7 +18,7 @@
                     <textarea formControlName="shortdesc" cols="52" rows="8"></textarea>
                 </div>
             </div>
-            <button type="button" (click)="toggleNewDeptForm()">Cancel</button>
+            <button type="button" (click)="toggleDeptForm()">Cancel</button>
             <button [disabled]="getDeptForm().invalid">Submit</button>
         </form>
     </div>

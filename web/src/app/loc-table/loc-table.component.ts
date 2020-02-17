@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 })
 export class LocTableComponent implements OnInit {
   // Event emitter to alert home component to show new loc component
-  @Output() newLocForm = new EventEmitter<boolean>();
+  @Output() showLocForm = new EventEmitter<{code: number, show: boolean}>();
   // Subscribe to refresh input to refresh loc table on creation of new location
   @Input('refresh') refresh: Subject<boolean>;
   // Variable to hold queried locations
@@ -27,9 +27,16 @@ export class LocTableComponent implements OnInit {
     })
   }
 
-  public toggleNewLocForm() {
-    // When create button is clicked emit event to show new loc component
-    this.newLocForm.emit(false);
+  public toggleLocForm(el: HTMLElement) {
+    let locCode = null;
+    if (el.innerText !== "CREATE") {
+      locCode = Number(el.innerText);
+    }
+    // When toggled emit event to show loc component
+    this.showLocForm.emit({
+      code: locCode,
+      show: true
+    });
   }
 
   public getLocs() {

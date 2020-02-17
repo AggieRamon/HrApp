@@ -17,9 +17,12 @@ export class HomeComponent implements OnInit {
   public hideJob: boolean;
   public hideDept: boolean;
   public hideLoc: boolean;
-  public hideNewJobForm: boolean;
-  public hideNewDeptForm: boolean;
-  public hideNewLocForm: boolean;
+  public showJobForm: boolean;
+  public jobcode: number;
+  public showDeptForm: boolean;
+  public deptCode:number;
+  public showLocForm: boolean;
+  public locCode:number;
   // Create subject to determine when to refresh tables after changes
   public jobRefresh: Subject<boolean>;
   public deptRefresh: Subject<boolean>;
@@ -39,24 +42,27 @@ export class HomeComponent implements OnInit {
     this.hideJob = true;
     this.hideDept = true;
     this.hideLoc = true;
-    this.hideNewJobForm = true;
-    this.hideNewDeptForm = true;
-    this.hideNewLocForm = true;
+    this.showJobForm = false;
+    this.showDeptForm = false;
+    this.showLocForm = false;
   }
 
-  toggleNewJobForm(hide: boolean) {
+  toggleJobForm(jobForm: {code: number, show: boolean}) {
     // Get showJobFrom event emitter value
-    this.hideNewJobForm = hide;
+    this.showJobForm = jobForm.show;
+    this.jobcode = jobForm.code;
   }
 
-  toggleNewDeptForm(hide: boolean) {
+  toggleDeptForm(deptForm: {code: number, show:boolean}) {
     // Get showDeptFrom event emitter value
-    this.hideNewDeptForm = hide;
+    this.showDeptForm = deptForm.show;
+    this.deptCode = deptForm.code;
   }
 
-  toggleNewLocForm(hide: boolean) {
+  toggleLocForm(locForm: {code: number, show: boolean}) {
     // Get showLocFrom event emitter value
-    this.hideNewLocForm = hide;
+    this.showLocForm = locForm.show;
+    this.locCode = locForm.code;
   }
 
   public clicked(el: HTMLElement) {

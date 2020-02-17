@@ -1,4 +1,4 @@
-<button class="create" (click)="toggleNewLocForm()">CREATE</button>
+<button #create class="create" (click)="toggleLocForm(create)">CREATE</button>
 <div>
     <table>
         <thead>
@@ -8,8 +8,8 @@
             <th></th>
         </thead>
         <tbody>
-            <tr *ngFor="let loc of getLocs()">
-                <td>{{ loc.code }}</td>
+            <tr *ngFor="let loc of getLocs()" (click)="toggleLocForm(code)">
+                <td #code>{{ loc.code }}</td>
                 <td>{{ loc.name }}</td>
                 <td>{{ loc.shortdesc }}</td>
                 <td>

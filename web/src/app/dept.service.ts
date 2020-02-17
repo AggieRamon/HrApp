@@ -15,9 +15,7 @@ export class DeptService {
   }
 
   public getDeptById(id: number) {
-    return this.http.get("http://" + environment.host + ":" + environment.port + "/dept/" + id).toPromise().then(res => {
-       return res;
-    });
+    return this.http.get("http://" + environment.host + ":" + environment.port + "/dept/" + id)
   }
 
   public createDept(dept: object) {

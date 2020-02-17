@@ -15,13 +15,13 @@
     </div>
 
     <emp-table [hidden]="hideEmp"></emp-table>
-    <job-table [hidden]="hideJob" (showJobForm)="toggleNewJobForm($event)" [refresh]="jobRefresh"></job-table>
-    <dept-table [hidden]="hideDept" (newDeptForm)="toggleNewDeptForm($event)" [refresh]="deptRefresh"></dept-table>
-    <loc-table [hidden]="hideLoc" (newLocForm)="toggleNewLocForm($event)" [refresh]="locRefresh"></loc-table>
+    <job-table [hidden]="hideJob" (showJobForm)="toggleJobForm($event)" [refresh]="jobRefresh"></job-table>
+    <dept-table [hidden]="hideDept" (showDeptForm)="toggleDeptForm($event)" [refresh]="deptRefresh"></dept-table>
+    <loc-table [hidden]="hideLoc" (showLocForm)="toggleLocForm($event)" [refresh]="locRefresh"></loc-table>
 
 
 </div>
 
-<new-job [hidden]="hideNewJobForm" (showJobForm)="toggleNewJobForm($event)" [refresh]="jobRefresh"></new-job>
-<new-dept [hidden]="hideNewDeptForm" (newDeptForm)="toggleNewDeptForm($event)" [refresh]="deptRefresh"></new-dept>
-<new-loc [hidden]="hideNewLocForm" (newLocForm)="toggleNewLocForm($event)" [refresh]="locRefresh"></new-loc>
+<new-job  *ngIf="showJobForm" (showJobForm)="toggleJobForm($event)" [code]="jobcode" [refresh]="jobRefresh"></new-job>
+<new-dept *ngIf="showDeptForm" (showDeptForm)="toggleDeptForm($event)" [code]="deptCode" [refresh]="deptRefresh"></new-dept>
+<new-loc *ngIf="showLocForm" (showLocForm)="toggleLocForm($event)" [code]="locCode" [refresh]="locRefresh"></new-loc>

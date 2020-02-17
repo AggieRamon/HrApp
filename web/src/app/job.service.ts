@@ -16,9 +16,7 @@ export class JobService {
   }
 
   public getJobById(id: number) {
-    return this.http.get("http://" + environment.host + ":" + environment.port + "/job/" + id).toPromise().then(res => {
-       return res;
-    });
+    return this.http.get("http://" + environment.host + ":" + environment.port + "/job/" + id)
   }
 
   public createJob(job: object) {

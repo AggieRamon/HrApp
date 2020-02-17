@@ -47,3 +47,7 @@ new-job {
 .addLeftBorder {
     border-left: solid 2px black;
 }
+
+.remove {
+    display: none;
+}

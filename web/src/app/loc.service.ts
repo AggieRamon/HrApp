@@ -15,9 +15,7 @@ export class LocService {
   }
 
   public getLocById(id: number) {
-    return this.http.get("http://" + environment.host + ":" + environment.port + "/loc/" + id).toPromise().then(res => {
-       return res;
-    });
+    return this.http.get("http://" + environment.host + ":" + environment.port + "/loc/" + id)
   }
 
   public createLoc(loc: object) {

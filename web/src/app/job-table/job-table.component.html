@@ -1,4 +1,4 @@
-<button class="create" (click)="toggleNewJobForm()">CREATE</button>
+<button #create class="create" (click)="toggleJobForm(create)">CREATE</button>
 <div>
     <table>
         <thead>
@@ -8,8 +8,8 @@
             <th></th>
         </thead>
         <tbody>
-            <tr *ngFor="let job of getJobs()">
-                <td>{{ job.code }}</td>
+            <tr *ngFor="let job of getJobs()" (click)="toggleJobForm(code)">
+                <td #code>{{ job.code }}</td>
                 <td>{{ job.title }}</td>
                 <td>{{ job.shortdesc }}</td>
                 <td>
