@@ -43,6 +43,18 @@ export class DeptTableComponent implements OnInit {
     return this.depts;
   }
 
+  public delete(el: HTMLElement, e: Event) {
+    e.stopPropagation();
+    let result = confirm("Are you sure you want to delete?")
+    if (result) {
+      this.deptService.deleteDept(Number(el.innerText)).subscribe(res => {
+        if (res.status === 200) {
+          this.queryDepts()
+        }
+      })
+    }
+  }
+
   private async queryDepts() {
     // Call job service to query jobs
     this.depts = await this.deptService.getDept();

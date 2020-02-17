@@ -31,4 +31,11 @@ export class LocService {
       responseType: "text"
     });
   }
+
+  public deleteLoc(id: number) {
+    return this.http.delete("http://" + environment.host + ":" + environment.port + "/loc/" + id, {
+      observe: "response",
+      responseType: "text"
+    })
+  }
 }

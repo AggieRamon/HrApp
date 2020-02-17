@@ -43,6 +43,18 @@ export class LocTableComponent implements OnInit {
     return this.locs;
   }
 
+  public delete(el: HTMLElement, e: Event) {
+    e.stopPropagation();
+    let result = confirm("Are you sure you want to delete?")
+    if (result) {
+      this.locService.deleteLoc(Number(el.innerText)).subscribe(res => {
+        if (res.status === 200) {
+          this.queryLocs()
+        }
+      })
+    }
+  }
+
   private async queryLocs() {
     // Call loc service to query locations
     this.locs = await this.locService.getLoc();

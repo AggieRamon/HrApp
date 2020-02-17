@@ -12,13 +12,13 @@
         <tbody>
             <ng-container *ngFor="let user of getUsers()">
                 <tr routerLink="/edit/{{ user.id }}">
-                    <td>{{ user.id }}</td>
+                    <td #userID>{{ user.id }}</td>
                     <td>{{ user.firstname }}</td>
                     <td>{{ user.lastname }}</td>
                     <td>{{ user.jobtitle }}</td>
                     <td>{{ user.status }}</td>
                     <td>
-                        <button class="delete">DELETE</button>
+                        <button class="delete" (click)="delete(userID, $event)">DELETE</button>
                     </td>
                 </tr>
             </ng-container>

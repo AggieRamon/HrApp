@@ -34,4 +34,11 @@ export class UserService {
       responseType: "text"
     });
   }
+
+  public deleteUser(id: number) {
+    return this.http.delete("http://" + environment.host + ":" + environment.port + "/user/" + id, {
+      observe: "response",
+      responseType: "text"
+    })
+  }
 }

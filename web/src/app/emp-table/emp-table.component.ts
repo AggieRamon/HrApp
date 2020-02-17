@@ -13,11 +13,27 @@ export class EmpTableComponent implements OnInit {
     this.users = [];
   }
 
-  async ngOnInit() {
-    this.users = await this.userService.getUser();
+  ngOnInit() {
+    this.queryUsers()  
   }
 
   public getUsers() {
     return this.users;
+  }
+
+  public delete(el: HTMLElement, e: Event) {
+    e.stopPropagation();
+    let result = confirm("Are you sure you want to delete?")
+    if (result) {
+      this.userService.deleteUser(Number(el.innerText)).subscribe(res => {
+        if (res.status === 200) {
+          this.queryUsers()
+        }
+      })
+    }
+  }
+
+  private async queryUsers() {
+    this.users = await this.userService.getUser();
   }
 }

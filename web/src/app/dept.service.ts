@@ -31,4 +31,11 @@ export class DeptService {
       responseType: "text"
     });
   }
+
+  public deleteDept(id: number) {
+    return this.http.delete("http://" + environment.host + ":" + environment.port + "/dept/" + id, {
+      observe: "response",
+      responseType: "text"
+    })
+  }
 }

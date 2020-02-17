@@ -43,6 +43,18 @@ export class JobTableComponent implements OnInit {
     return this.jobs;
   }
 
+  public delete(el: HTMLElement, e: Event) {
+    e.stopPropagation();
+    let result = confirm("Are you sure you want to delete?")
+    if (result) {
+      this.jobService.deleteJob(Number(el.innerText)).subscribe(res => {
+        if (res.status === 200) {
+          this.queryJobs()
+        }
+      })
+    }
+  }
+
   private async queryJobs() {
     // Call job service to query jobs
     this.jobs = await this.jobService.getJob() 

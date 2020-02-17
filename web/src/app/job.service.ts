@@ -32,4 +32,11 @@ export class JobService {
       responseType: "text"
     });
   }
+
+  public deleteJob(id: number) {
+    return this.http.delete("http://" + environment.host + ":" + environment.port + "/job/" + id, {
+      observe: "response",
+      responseType: "text"
+    })
+  }
 }

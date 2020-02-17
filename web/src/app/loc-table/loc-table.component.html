@@ -13,7 +13,7 @@
                 <td>{{ loc.name }}</td>
                 <td>{{ loc.shortdesc }}</td>
                 <td>
-                    <button class="delete">DELETE</button>
+                    <button class="delete" (click)="delete(code, $event)">DELETE</button>
                 </td>
             </tr>
         </tbody>
