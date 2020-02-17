@@ -11,7 +11,7 @@ Simple application to act as a source of authority for an Identity System. **NOT
 
 ## Database (Postgresql)
 
-You must manually download and configure the postgresql database. Below are the tables, and associated fields that need to be created
+You must manually install and configure the postgresql database. Below are the tables, and associated fields that need to be created
 
 * users
     * firstname
@@ -45,4 +45,4 @@ You must also update the db.ts file with your database host, credentials, name, 
 
 ## Starting Application
 
-Run `npm run start` in the api folder, and then `ng serve` in the web folder
+Run `npm run start` in the api folder, and then `ng serve` in the web folder. When starting the application ensure that the environment.ts, and environment.prod.ts have been updated with the correct host and port
