@@ -41,6 +41,7 @@ textarea {
     padding: 3px;
     border: 1px solid var(--secondary-clr);
     background: var(--primary-clr);
+    width: 100%;
 }
 
 input:focus {
